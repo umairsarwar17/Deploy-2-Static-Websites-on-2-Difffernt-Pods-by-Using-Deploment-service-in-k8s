@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: html-pod-2
+  namespace: my-namespace
+spec:
+  containers:
+  - name: app2
+    image: html-app2
+    ports:
+    - containerPort: 80

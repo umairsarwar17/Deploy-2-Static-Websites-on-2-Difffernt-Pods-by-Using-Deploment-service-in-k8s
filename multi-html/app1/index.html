@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>पयारा वेबसाइट | सुंदर डिज़ाइन</title>
+  <!-- Google Fonts for clean, modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (Free Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefaf5;
+      color: #1e1e2a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar for a polished look */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1e9e0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c9a87b;
+      border-radius: 12px;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / navbar */
+    header {
+      background: #ffffffea;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #f0e2d4;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #b96b2d, #e0a46b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .logo span {
+      font-weight: 400;
+      color: #b87a4b;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #4a3b2c;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: #c06c2e;
+      border-bottom: 2px solid #e0a46b;
+      padding-bottom: 4px;
+    }
+
+    /* buttons & common */
+    .btn {
+      display: inline-block;
+      background-color: #dd8a4c;
+      color: white;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .btn:hover {
+      background-color: #bd6d34;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    /* hero section */
+    .hero {
+      padding: 5rem 0 4rem 0;
+      background: linear-gradient(145deg, #fff6ed 0%, #fee9db 100%);
+      border-bottom-left-radius: 48px;
+      border-bottom-right-radius: 48px;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .hero-content {
+      flex: 1;
+      min-width: 260px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(to right, #a3521d, #dc8c52);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #4f3e2e;
+      margin: 1.5rem 0;
+    }
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      width: 380px;
+      border-radius: 48px;
+      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* section common */
+    section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      color: #3a2a1f;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #e2b282;
+      margin: 0.8rem auto 0;
+      border-radius: 4px;
+    }
+
+    /* features grid (cards) */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      flex: 1;
+      min-width: 220px;
+      text-align: center;
+      transition: all 0.25s;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f3e5d8;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+      border-color: #f0cfb0;
+    }
+    .feature-icon {
+      font-size: 2.8rem;
+      color: #dd8a4c;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .feature-card p {
+      color: #5e4c39;
+    }
+
+    /* about + image mix */
+    .about-section {
+      background: #fcf5ed;
+      border-radius: 48px;
+      margin: 1rem 0;
+    }
+    .about-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      margin-bottom: 1.2rem;
+      color: #4d3a28;
+    }
+    .about-img {
+      flex: 1;
+      text-align: center;
+    }
+    .about-img img {
+      max-width: 100%;
+      border-radius: 40px;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 380px;
+    }
+
+    /* gallery / showcase section */
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: center;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 20px -10px rgba(0,0,0,0.08);
+      transition: 0.2s;
+      width: 280px;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 30px -12px rgba(0,0,0,0.15);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-caption {
+      padding: 1rem;
+      text-align: center;
+      font-weight: 500;
+      background: #fffaf5;
+    }
+
+    /* testimonial / extra section 6 */
+    .testimonial {
+      background: #e9ddd0;
+      border-radius: 48px;
+      text-align: center;
+    }
+    .testimonial-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 48px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+    }
+    .testimonial-card i {
+      font-size: 3rem;
+      color: #dd8a4c;
+      opacity: 0.6;
+    }
+    .testimonial-text {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin: 1rem 0;
+      color: #2f241b;
+    }
+    .testimonial-author {
+      font-weight: 700;
+      margin-top: 1rem;
+      color: #a45927;
+    }
+
+    /* footer */
+    footer {
+      background: #2c241c;
+      color: #f0e2d4;
+      padding: 2.5rem 0;
+      text-align: center;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      margin-top: 2rem;
+    }
+    .footer-social {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+    }
+    .footer-social a {
+      color: #e6c6a8;
+      font-size: 1.6rem;
+      transition: 0.2s;
+    }
+    .footer-social a:hover {
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .about-wrap, .hero-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-image img, .about-img img {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">पयारा<span>वेब</span></div>
+        <ul class="nav-links">
+          <li><a href="#home">होम</a></li>
+          <li><a href="#features">विशेषताएँ</a></li>
+          <li><a href="#about">हमारे बारे में</a></li>
+          <li><a href="#gallery">गैलरी</a></li>
+          <li><a href="#testimonial">समीक्षा</a></li>
+        </ul>
+        <a href="#" class="btn" id="exploreBtn">अन्वेषण करें</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero (Home) -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>स्वागत है आपका <br>पयारा संसार में</h1>
+          <p>जहाँ सौंदर्य, शांति और प्रेरणा मिलते हैं। हर पल को खास बनाने के लिए हम यहाँ हैं। प्रकृति, कला और रचनात्मकता का अनोखा संगम।</p>
+          <a href="#gallery" class="btn">✨ हमारी दुनिया देखें</a>
+        </div>
+        <div class="hero-image">
+          <img src="https://picsum.photos/id/104/500/500" alt="Beautiful landscape" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Features / Services (cards with icons) -->
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">हमारी खास बातें</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+            <h3>प्राकृतिक सुंदरता</h3>
+            <p>हरे-भरे बाग़, पहाड़ी दृश्य और शुद्ध वातावरण — आपकी आत्मा को सुकून देने वाला अनुभव।</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-palette"></i></div>
+            <h3>कलात्मक डिज़ाइन</h3>
+            <p>हर कोना सजीव और प्रेरणादायक, रंगों और बनावटों का अनोखा मेल।</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-heart"></i></div>
+            <h3>शुद्ध आनंद</h3>
+            <p>योग, ध्यान और सांस्कृतिक कार्यक्रम — मन, शरीर और आत्मा का मिलन।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: About Us with image + content -->
+    <section id="about" class="about-section">
+      <div class="container about-wrap">
+        <div class="about-text">
+          <h2>हमारी कहानी 🌼</h2>
+          <p>पयारा वेबसाइट की शुरुआत एक सपने से हुई — एक ऐसा स्थान बनाने का जहाँ हर व्यक्ति को शांति और सुंदरता का अनुभव हो। हम प्रकृति और समकालीन डिज़ाइन को मिलाकर एक अनोखा डिजिटल अनुभव प्रदान करते हैं।</p>
+          <p>हमारी टीम कला, प्रौद्योगिकी और पर्यावरण-प्रेम को एक सूत्र में पिरोती है। हर परियोजना के पीछे गहरी सोच और सादगी का भाव छुपा है। हम आपको ऐसी सामग्री, चित्र और विचार देते हैं जो आपके दिन को उज्ज्वल बनाते हैं।</p>
+          <a href="#" class="btn">और जानें <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="about-img">
+          <img src="https://picsum.photos/id/20/500/500" alt="about nature team" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Gallery (image showcase) -->
+    <section id="gallery">
+      <div class="container">
+        <h2 class="section-title">दृश्य गैलरी 📸</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://picsum.photos/id/15/400/300" alt="Mountain lake" loading="lazy">
+            <div class="gallery-caption">शांत झील और बर्फीले पहाड़</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://picsum.photos/id/106/400/300" alt="Flower bloom" loading="lazy">
+            <div class="gallery-caption">वसंत के फूलों की बहार</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://picsum.photos/id/96/400/300" alt="Misty forest" loading="lazy">
+            <div class="gallery-caption">रहस्यमयी जंगल का रास्ता</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://picsum.photos/id/29/400/300" alt="Coastal view" loading="lazy">
+            <div class="gallery-caption">सुनहरा समुद्र तट</div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <p style="color:#a86533;">✨ हर छवि एक कहानी कहती है, हर पल एक एहसास।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Testimonial / Reviews (6th section overall, but it's fine) -->
+    <section id="testimonial" class="testimonial">
+      <div class="container" style="padding: 2rem 0;">
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left"></i>
+          <p class="testimonial-text">"यह वेबसाइट मेरे दिल को छू गई। हर सेक्शन में सुंदरता और सकारात्मक ऊर्जा है। तस्वीरें अद्भुत और सामग्री बेहद प्रेरणादायक। पयारा वेब नाम सच में सार्थक है!"</p>
+          <div class="testimonial-author">— रिया शर्मा, कला प्रेमी</div>
+          <div style="margin-top: 1rem; color:#dd8a4c;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bonus: Section 6 (Contact / extra informative block with image and content) -->
+    <section id="connect" style="padding: 3rem 0 5rem 0;">
+      <div class="container">
+        <div class="about-wrap" style="flex-direction: row-reverse; gap: 2rem;">
+          <div class="about-text">
+            <h2>आइए जुड़ें 🌻</h2>
+            <p>हम आपकी राय, सुझाव और रचनात्मक विचारों का स्वागत करते हैं। हमारा समुदाय हर दिन नई प्रेरणा से बढ़ता है। हमारे न्यूज़लेटर के लिए साइनअप करें या सोशल मीडिया पर फॉलो करें।</p>
+            <p><i class="fas fa-envelope"></i> hello@payaraweb.com  &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+            <a href="#" class="btn" style="margin-top: 0.5rem;">संपर्क करें <i class="fas fa-paper-plane"></i></a>
+          </div>
+          <div class="about-img">
+            <img src="https://picsum.photos/id/169/500/500" alt="community connect" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="logo" style="background: none; color:#f0dbb4; font-size: 1.8rem;">पयारा<span style="color:#e7bc89;">वेब</span></div>
+      <p style="margin: 1rem 0 0.5rem;">सुंदरता, रचनात्मकता और शांति का संगम — हर दिन आपके लिए</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p style="font-size: 0.85rem; margin-top: 1.5rem;">© 2025 पयारा वेब | सभी अधिकार सुरक्षित | एक सुंदर डिजिटल अनुभव</p>
+    </div>
+  </footer>
+
+  <!-- tiny interactive js for alert / smooth demo -->
+  <script>
+    // Adding a smooth interactive behavior on explore button
+    const exploreBtn = document.getElementById('exploreBtn');
+    if(exploreBtn) {
+      exploreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const gallerySection = document.getElementById('gallery');
+        if(gallerySection) {
+          gallerySection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+
+    // Additional hover effect for feature cards
+    const cards = document.querySelectorAll('.feature-card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'all 0.2s ease';
+      });
+    });
+
+    // simple console greeting
+    console.log('✨ पयारा वेबसाइट तैयार है — सुंदरता और शांति आपके साथ!');
+  </script>
+</body>
+</html>

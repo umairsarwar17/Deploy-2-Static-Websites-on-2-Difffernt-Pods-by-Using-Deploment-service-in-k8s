@@ -1,0 +1,51 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+
+nodes:
+  # ================= MASTER NODE =================
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 8080
+        protocol: TCP
+
+      - containerPort: 443
+        hostPort: 8443
+        protocol: TCP
+
+    extraMounts:
+      - hostPath: /mnt/kind-data/master
+        containerPath: /data
+
+  # ================= WORKER 1 =================
+  - role: worker
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 8081
+        protocol: TCP
+
+    extraMounts:
+      - hostPath: /mnt/kind-data/worker1
+        containerPath: /data
+
+  # ================= WORKER 2 =================
+  - role: worker
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 8082
+        protocol: TCP
+
+    extraMounts:
+      - hostPath: /mnt/kind-data/worker2
+        containerPath: /data
+
+  # ================= WORKER 3 =================
+  - role: worker
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 8083
+        protocol: TCP
+
+    extraMounts:
+      - hostPath: /mnt/kind-data/worker3
+        containerPath: /data
